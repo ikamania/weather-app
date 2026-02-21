@@ -7,22 +7,29 @@ import WeatherStats from "./components/WeatherStats"
 function App() {
   const { data, loading, error } = useWeather("Tbilisi")
 
-  if (loading)
+  if (loading || !data)
     return <p>Loading ...</p>
   if (error)
     return <p>Error fetching weather</p>
-  console.log(data)
+
   return (
     <div className="w-[100vw] h-[100vh] bg-gradient-to-b from-[#112466] to-[#2d2fb3]">
       <MainInfo
-        location={data?.location?.name}
-        date={data?.location?.localtime}
-        temp={data?.current?.temp_c}
+        location={data.location.name}
+        date={data.location.localtime}
+        temp={data.current.temp_c}
       />
+
       <MainIcon 
-        code={data?.current?.condition?.code}
+        code={data.current.condition.code}
+        isDay={data.current.is_day}
       />
-      <WeatherStats />
+
+      <WeatherStats 
+        wind={data.current.wind_kph}
+        humidity={data.current.humidity}
+        rain={data.current.precip_mm}
+      />
     </div>
   )
 }
