@@ -3,14 +3,15 @@ import { useWeather } from "./hooks/useWeather"
 import MainInfo from "./components/MainInfo"
 import MainIcon from "./components/MainIcon"
 import WeatherStats from "./components/WeatherStats"
+import Loading from "./components/Loading"
 
 function App() {
   const { data, loading, error } = useWeather("Tbilisi")
 
   if (loading || !data)
-    return <p>Loading ...</p>
+    return <Loading text="Loading ..." />
   if (error)
-    return <p>Error fetching weather</p>
+    return <Loading text="Error fetching weather ..." />
 
   return (
     <div className="w-[100vw] h-[100vh] bg-gradient-to-b from-[#112466] to-[#2d2fb3]">
