@@ -26,11 +26,11 @@ const MainInfo = ({location, temp, date}: MainInfoProps) => {
   return (
     <div className="w-full flex justify-center p-[1.5rem]">
       <div className="font-mont leading-[1]">
-        <div className="text-white text-[4rem] flex flex-col items-center">
+        <div className="text-white text-[5.5rem] flex flex-col items-center">
           <p>{location}</p>
-          <p className="text-[3.5rem]">{temp}°</p>
+          <p className="text-[3.7rem]">{temp}°</p>
 
-          <div className="text-gray-500 font-medium text-[1.2rem] mt-[.6rem]">
+          <div className="text-gray-500 font-bold text-[1.3rem] mt-[.6rem]">
             <p>{dateFormated}</p>
           </div>
         </div>
