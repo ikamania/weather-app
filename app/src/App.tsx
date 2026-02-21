@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useWeather } from "./hooks/useWeather"
 import MainInfo from "./components/MainInfo"
 import MainIcon from "./components/MainIcon"
+import WeatherStats from "./components/WeatherStats"
 
 function App() {
   const { data, loading, error } = useWeather("Tbilisi")
@@ -19,8 +20,9 @@ function App() {
         temp={data?.current?.temp_c}
       />
       <MainIcon 
-        condition={data?.current?.condition?.text}
+        code={data?.current?.condition?.code}
       />
+      <WeatherStats />
     </div>
   )
 }
