@@ -6,10 +6,18 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: var(--font-dm);
+  background-color: var(--background);
 }
 
 @theme {
   --font-dm: "DM Sans", sans-serif;
+
+  --color-background: var(--background);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-border: var(--border);
 }
 
 :root {
