@@ -1,19 +1,25 @@
+import type { ReactNode } from "react";
+
 type WeatherStatProps = {
-  icon: JSX.Element;
+  icon: ReactNode;
   text: string;
   metric: string;
-}
+};
 
 const WeatherStat = ({ icon, text, metric }: WeatherStatProps) => {
   return (
-    <div className="flex flex-col items-center text-gray-300 font-medium gap-1">
-      {icon}
-      <span>
-        {text}
-        <span className="ml-1 text-[1.5rem] font-bold text-gray-600">{metric}</span>
-      </span>
+    <div
+      className="
+      flex flex-col items-center justify-center
+      gap-[0.5rem] rounded-2xl bg-card p-[1rem]
+      border border-border
+    "
+    >
+      <span className="text-primary text-3xl">{icon}</span>
+      <span className="text-sm font-medium text-muted">{text}</span>
+      <span className="text-2xl font-semibold">{metric}</span>
     </div>
-  )
-}
+  );
+};
 
-export default WeatherStat
+export default WeatherStat;
