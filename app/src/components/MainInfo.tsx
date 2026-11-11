@@ -23,7 +23,7 @@ const MainInfo = ({ location, temp, date }: MainInfoProps) => {
 
   return (
     <div className="text-center gap-[0.5rem] py-[2rem]">
-      <p className="text-2xl font-semibold tracking-tight text-foreground">
+      <p className="text-2xl font-semibold tracking-tight text-muted">
         {location}
       </p>
 
@@ -31,7 +31,7 @@ const MainInfo = ({ location, temp, date }: MainInfoProps) => {
         {temp}°
       </p>
 
-      <p className="text-base font-medium text-muted">{dateFormated}</p>
+      <p className="font-medium text-muted">{dateFormated}</p>
     </div>
   );
 };

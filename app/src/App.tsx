@@ -4,9 +4,18 @@ import MainIcon from "./components/MainIcon";
 import WeatherStats from "./components/WeatherStats";
 import Loading from "./components/Loading";
 import ThemeToggle from "./components/ThemeToggle";
+import { useEffect, useState } from "react";
 
 function App() {
-  const { data, error } = useWeather("Tbilisi");
+  const [location, setLocation] = useState<string | null>(null);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(({ coords }) => {
+      setLocation(`${coords.latitude},${coords.longitude}`);
+    });
+  }, []);
+
+  const { data, error } = useWeather(location ?? "Tbilisi");
 
   if (!data) return <Loading />;
   if (error) return <h1>something went wrong.</h1>;
@@ -16,7 +25,7 @@ function App() {
       <ThemeToggle />
 
       <MainInfo
-        location={data.location.name}
+        location={data.location.region}
         date={data.location.localtime}
         temp={data.current.temp_c}
       />
