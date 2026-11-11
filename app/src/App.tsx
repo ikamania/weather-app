@@ -3,6 +3,7 @@ import MainInfo from "./components/MainInfo";
 import MainIcon from "./components/MainIcon";
 import WeatherStats from "./components/WeatherStats";
 import Loading from "./components/Loading";
+import ThemeToggle from "./components/ThemeToggle";
 
 function App() {
   const { data, error } = useWeather("Tbilisi");
@@ -12,6 +13,8 @@ function App() {
 
   return (
     <div className="min-h-screen">
+      <ThemeToggle />
+
       <MainInfo
         location={data.location.name}
         date={data.location.localtime}
