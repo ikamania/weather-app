@@ -5,6 +5,7 @@ import WeatherStats from "./components/WeatherStats";
 import Loading from "./components/Loading";
 import ThemeToggle from "./components/ThemeToggle";
 import { useEffect, useState } from "react";
+import Search from "./components/Search";
 
 function App() {
   const [location, setLocation] = useState<string | null>(null);
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className="min-h-screen">
       <ThemeToggle />
+      <Search onSelect={setLocation} />
 
       <MainInfo
         location={data.location.region}

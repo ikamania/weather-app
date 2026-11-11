@@ -22,7 +22,7 @@ const MainInfo = ({ location, temp, date }: MainInfoProps) => {
   const dateFormated = formatDate(date);
 
   return (
-    <div className="text-center gap-[0.5rem] py-[2rem]">
+    <div className="text-center gap-[0.5rem] py-[2rem] sm:mt-0 mt-[2rem]">
       <p className="text-2xl font-semibold tracking-tight text-muted">
         {location}
       </p>
